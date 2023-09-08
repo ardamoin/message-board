@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  ul
+    each message in messages
+      li
+        b #{message.user}:
+        span= ` ${message.text}`
+        br
+        span= `${message.added.toLocaleDateString()}, ${message.added.toLocaleTimeString()}`
+      br
+
+  a(href="/new")
+    button Send Message
